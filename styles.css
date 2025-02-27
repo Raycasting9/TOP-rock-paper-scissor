@@ -1,0 +1,29 @@
+body {
+    height: 100vh;
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.container {
+    background-color: rgb(201, 180, 148);
+    height: 200px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    gap: 40px;
+}
+
+.score {
+    display: flex;
+    justify-content: space-around;
+}
+
+.option {
+    gap: 30px;
+    display: flex;
+    justify-content: center;
+}

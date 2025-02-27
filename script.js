@@ -7,12 +7,6 @@ function playGame(){
     let humanScore = 0;
     let computerScore = 0;
 
-    for(let i=0;i<5;i++){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
-
     if(humanScore > computerScore){
         console.log("You Win! 🏆");
     }else{
