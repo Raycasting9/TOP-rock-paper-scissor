@@ -9,7 +9,8 @@ body {
 
 .container {
     background-color: rgb(201, 180, 148);
-    height: 200px;
+    border-radius: 12px;
+    height: 300px;
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -20,10 +21,16 @@ body {
 .score {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .option {
     gap: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+#console {
     display: flex;
     justify-content: center;
 }

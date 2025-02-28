@@ -11,15 +11,17 @@
     <div class="container">
         <div class="score">
             <h4>Computer:</h4>
+            <div id="compscore"></div>
             <h4>Human:</h4>
+            <div id="humanscore"></div>
         </div>
-        <div class="console">
-        </div>
+        <p id="console">Start The Game!</p>
         <div class="option">
-            <button class="rock">Rock</button>
-            <button class="paper">Paper</button>
-            <button class="scissor">scissor</button>
+            <button onclick="playRound('rock')" id="rock">Rock</button>
+            <button onclick="playRound('paper')" id="paper">Paper</button>
+            <button onclick="playRound('scissor')" id="scissor">scissor</button>
         </div>
+        <button onclick="resetGame()">reset</button>
     </div>
 </body>
 </html>

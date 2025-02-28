@@ -1,54 +1,55 @@
 
-playGame();
+let humanScore = 0;
+let computerScore = 0;
+let winScore = 5;
 
-//Play Game
-function playGame(){
+//play Round
+function playRound(humanChoice) {
+    let computerChoice = getComputerChoice()
+    let result = "";
 
-    let humanScore = 0;
-    let computerScore = 0;
-
-    if(humanScore > computerScore){
-        console.log("You Win! 🏆");
-    }else{
-        console.log("You lose! 😥");
+    if (humanChoice === computerChoice){
+        result = `Draw! You both chooses ${humanChoice}`;
+    } else if ( humanChoice === "rock" && computerChoice === "scissor"
+        || humanChoice === "paper" && computerChoice === "rock"
+        || humanChoice === "scissor" && computerChoice === "rock"
+    ){
+        result = `You Win! ${humanChoice} beats ${computerChoice}`;
+        humanScore++;
+    } else{
+        result = `You lose! ${computerChoice} beats ${humanChoice}`;
+        computerScore++;
     }
 
-    //play Round
-    function playRound(humanChoice, computerChoice) {
-        if (humanChoice === computerChoice){
-            console.log(`Draw! You both chooses ${humanChoice}`);
-        } else if ( humanChoice === "rock" && computerChoice === "scissor"
-            || humanChoice === "paper" && computerChoice === "rock"
-            || humanChoice === "scissor" && computerChoice === "rock"
-        ){
-            console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
-            humanScore++;
-        } else{
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-            computerScore++;
-        }
-    }
+    document.getElementById("compscore").innerText = computerScore;
+    document.getElementById("humanscore").innerText = humanScore;
+    document.getElementById("console").innerText = result;
 
+    if (humanScore >= winScore){
+        document.getElementById("console").innerText = "🎉 You Win the game ! 🎉";
+        disableButtons();
+    }else if (computerScore >= winScore) {
+        document.getElementById("console").innerText = "💀 You Lose the game ! 💀";
+        disableButtons();
+    }
 }
 
-//Get Human Choice
-function getHumanChoice() {
-    for (;;){
-        let choice = prompt("What's your sign");
+function disableButtons() {
+    document.getElementById("rock").disabled = true;
+    document.getElementById("paper").disabled = true;
+    document.getElementById("scissor").disabled = true;
+}
 
-        if(choice === null){
-            console.log("User cancelled the prompt");
-            return null;
-        }
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    document.getElementById("compscore").innerText = computerScore;
+    document.getElementById("humanscore").innerText = humanScore;
+    document.getElementById("console").innerText = "Game reset!";
 
-        choice = choice.toLowerCase();
-
-        if(choice === "rock" || choice === "paper" || choice === "scissor"){
-            return choice;
-        } else{
-            console.log("invalid input");
-        }
-    }
+    document.getElementById("rock").disabled = false;
+    document.getElementById("paper").disabled = false;
+    document.getElementById("scissor").disabled = false;
 }
 
 //Get Computer Choice
